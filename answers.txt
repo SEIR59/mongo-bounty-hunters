@@ -1,64 +1,51 @@
 Please replace this text with ~50 lines of terminal history.
-
-hunters> db.bounties.find()
-[
-  {
-    _id: ObjectId("629a54911a1bfbdca6eea295"),
-    name: 'Han Solo',
-    wantedFor: 'Owing money',
-    client: 'Jabba the Hut',
-    reward: 2666666,
-    ship: 'Millennium Falcon',
-    hunters: [ 'Bobba Fett', 'IG-88', 'Zuckuss', 'Greedo', 'Bossk', '4-LOM' ],
-    captured: false,
-    lastSeen: 'yesterday'
-  },
-  {
-    _id: ObjectId("629a54911a1bfbdca6eea296"),
-    name: 'Rocket',
-    wantedFor: 'Stealing Batteries',
-    client: 'Ayesha High Priestess of the Sovereign',
-    reward: 2000666666,
-    ship: 'The Milano 2',
-    hunters: [ 'Nebula', 'Ravagers' ],
-    captured: false,
-    lastSeen: 'last week'
-  },
-  {
-    _id: ObjectId("629a54911a1bfbdca6eea297"),
-    name: 'White Canary',
-    wantedFor: 'Screwing up the timeline, causing anachronisms',
-    client: 'Time Bureau',
-    reward: 766666,
-    ship: 'Waverider',
-    hunters: [ 'Chronos', 'Bobba Fett' ],
-    captured: false,
-    lastSeen: 'last week'
-  },
-  {
-    _id: ObjectId("629a54911a1bfbdca6eea298"),
-    name: 'Malcolm Reynolds',
-    wantedFor: 'Aiming to misbehave',
-    client: 'The Alliance',
-    reward: 746666,
-    ship: 'Serenity',
-    hunters: [ 'Jubal Early', 'Bobba Fett' ],
-    captured: false,
-    lastSeen: 'last week'
-  },
-  {
-    _id: ObjectId("629a559b1a1bfbdca6eea29a"),
-    name: 'Bryce',
-    reward: 666666,
-    lastSeen: 'last week'
-  }
-]
-hunters> db.bounties.updateMany({name:{$ne:'Han Solo'}}, {$set:{lastSeen:'last week'}})
-{
-  acknowledged: true,
-  insertedId: null,
-  matchedCount: 4,
-  modifiedCount: 0,
-  upsertedCount: 0
-}
-hunters> 
+db.bounties.find()
+use hunters
+db.bounties.find()
+show collections
+use hunters
+tail -50 ~/.dbshell
+db.bounties.updateMany({name:{$ne:'Han Solo'}}, {$set:{lastSeen:'last week'}})
+db.bounties.find()
+db.bounties.updateMany({name:{$ne:'Han Solo'}}, {$set:{lastSeen:'last week'}})
+db.bounties.updateMany({name:{$ne:'Han Solo'}}), {$set:{lastSeen:'last week'}})
+db.bounties.find()
+db.bounties.updateOne({ name: 'Han Solo' }, { $set: { lastSeen: 'yesterday' } })
+db.bounties.find()
+db.bounties.update({hunters:{$in:['Dengar']}}, {$pull:{hunters:'Dengar'}})
+db.bounties.update({hunters:{$in:['Dengar']}}, {$pull:{'hunters':{hunters:'Dengar'}}})
+db.bounties.update({hunters:{$in:['Dengar']}}, {$pull:{'hunters':{hunters:'Dengar'}})
+db.bounties.find()
+db.bounties.update({hunters:{$in:['Dengar']}}, {$pull:{hunters:['Dengar']}})
+db.bounties.find({hunters:{$in:['Dengar']}}, {$pull:{hunters:['Dengar']}})
+db.bounties.find({hunters:{$in:['Dengar']}}, {hunters:{$pull:['Dengar']}})
+db.bounties.find({hunters:{$in:['Dengar']}}, {hunters:{$splice:{$indexOfArray:['Dengar']}}})
+db.bounties.find({hunters:{$in:['Dengar']}, {hunters:{$splice:{$indexOfArray:['Dengar']}}}})
+db.bounties.({hunters:{$in:['Dengar']}, {hunters:{$splice:{$indexOfArray:['Denar']}}}})
+db.bounties.updateOne({ship:'Waverider'},{$push:{hunters:'Bobba Fett'}})
+db.bounties.update({name: 'Malcolm Reynolds'} , {$push:{hunters:'Bobba Fett'}})
+db.bounties.find()
+db.bounties.update({name: 'Malcom Reynolds'} , {$push:{hunters:'Bobba Fett'}})
+db.bounties.updateOne({name: 'Malcom Reynolds'} , {$push:{hunters:'Bobba Fett'}})
+db.bounties.find()
+db.bounties.updateMany({} , {$mul:{reward:2}})
+db.bounties.find()
+db.bounties.updateMany({} ,{$inc:{reward:333333}})
+db.bounties.find({$and:[{captured: false},{client:/High Pri/}]})
+db.bounties.find({captured: false},{client:/High Pri/})
+db.bounties.find({$or:[{ship:'Waverider'},{ship:'Serenity'}]})
+db.boutnies.find({$or:[{ship:'Waverider'},{ship:'Serenity'}]})
+db.bounties.find({ship:{$or:['Waverider','Serenity']}})
+db.bounties.find({ship:{$or:['Waverider','Serenity]}})
+db.bounties.find({hunters:{$in:['Nebula']}})
+db.bounties.find()
+db.bounties.find({}).filter((x)=>x.hunters.includes('Nebula'))
+db.bounties.find().filter((x)=>x.hunters.includes('Nebula'))
+db.bounties.find({hunters:{$in:{hunters:'Nebula'}}})
+db.bounties.find({$in:[{hunters:'Nebula'}]})
+db.bounties.find({$in:{hunters:'Nebula'}})
+db.bounties.find({hunters:{$in:'Nebula'}})
+db.bounties.find().map((x)=> x.reward)
+db.bounties.find().map((x)=> x.name)
+db.bounties.find({reward:{$lte:1000}})
+db.bounties.find({reward:{$lt:1000}})
