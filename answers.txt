@@ -6,6 +6,7 @@ tail -50~/hunters
 tail -50~/.dbshell
 tail-50~/.dbshell
 tail -50 ~/.dbshell
+db.bounties.updateMany({name: {$ne: 'Han Solo'}}, {$set: {lastSeen: 'last week'}}, {upsert: true})
 db.bounties.find({name: /Han/ })
 db.bounties.updateOne({ name: 'Han Solo'},{ $set: { lastSeen: 'yesterday'}})
 db.bounties.find({ hunters: /Dengar/ })
