@@ -1,1 +1,50 @@
-Please replace this text with ~50 lines of terminal history.
+db.bounties.insertOne(
+... {
+..... name: "Rick",
+..... wantedFor: "Crimes against the Citidel",
+..... client: "Rick",
+..... ship: "Made from garbage",
+..... reward: 1000000000,
+..... hunters: ["Rick"],
+..... captured: false
+..... }
+... )
+
+db.bounties.find()
+db.bounties.find( { client: "Time Bureau" })
+db.bounties.find( { captured: true })
+db.bounties.find({ name: "Rick" })
+db.bounties.find( {}, {_id: 0, name: 1})
+db.bounties.find({name: "Han Solo"})
+db.bounties.find( { name: "Starbuck" })
+db.bounties.deleteOne( { name: "Starbuck" })
+db.bounties.deleteOne({name: "Han Solo"})
+db.bounties.find({ name: "Sara Lance"})
+db.bounties.find( {}, {_id: 0, name: 1})
+db.bounties.updateOne( { name: "Sara Lance" }, {name: "White Canary"}) // didn't work
+db.bounties.updateOne( { { name: "Sara Lance" }, {name: "White Canary"}}) // didn't work
+db.bounties.updateOne( { name: "Sara Lance" }, { $set: {name: "White Canary"}})
+db.bounties.find( { name: "Sara Lance" }) // chekcing if this is still an entry
+db.bounties.find( { name: "White Canary" }) // checking to see if this was added
+db.bounties.find({reward: {$gt: 100000}}) // greater then 100,000
+db.bounties.find({reward: {$lt: 1000}}) // less then
+db.bounties.find({reward: {$lte: 1000}}) // less then or equal 
+db.bounties.find( { hunters: "Nebula" })
+db.bounties.find({ $or: [
+                            { ship: "Waverider"},
+                            { ship: "Serenity"}
+                        ]
+                    })
+
+db.bounties.find( {$and: [ 
+                            { captured: false }, 
+                            { client: "Ayesha High Priestess of the Sovereign"}
+                        ]
+                    })
+db.bounties.updateMany( {}, { $inc: { reward: 333333 } })
+db.bounties.updateMany( {}, { $mul: { reward: 2 } })
+db.bounties.updateOne( { name: "Malcolm Reynolds" }, { $push: { hunters: "Bobba Fett"}})
+db.bounties.updateOne( { ship: "Waverider" }, { $push: { hunters: "Bobba Fett"}})
+db.bounties.updateMany( {}, { $pull: { hunters: "Dengar" } } )
+db.bounties.updateOne( { name: "Han Solo" }, { $set: { lastSeen: "yesterday"  } })
+db.bounties.updateMany( { name: { $ne: "Han Solo" } }, { $set: { lastSeen: "last week" } } )
