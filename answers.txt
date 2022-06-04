@@ -1,1 +1,52 @@
-Please replace this text with ~50 lines of terminal history.
+patrickwyzlic@Patricks-MacBook-Pro mongosh % head -50 mongosh_repl_history
+tail -50 ~/.dbshell;
+tail -50 ~/.dbshell
+db
+use mongo-bounty-hunters
+show dbs
+db
+db.bounties.find()
+db.bounties.updateMany({name: {$ne: "Han Solo"}}, {$set: {"lastseen": "last week"}}, false, true)
+db.bounties.updateMany({name: {$ne: "Han Solo"}, {$set: {"lastseen": "last week"}}, false, true)
+db.bounties.updateMany({name: {$ne: ObjectId("Han Solo")}, {$set: {"lastseen": "last week"}}, false, true)
+db.bounties.updateMany({name: {$nin: ObjectId("Han Solo")}, {$set: {"lastseen": "last week"}}, false, true)
+db.bounties.updateMany({_id: {$nin: ObjectId("629bca390b83c298afe8575a")}, {$set: {"lastseen": "last week"}}, false, true)
+db.bounties.updateMany({_id},{$ne: _id: ObjectId("629bca390b83c298afe8575a")}, {$set: {"lastseen": "last week"}}, false, true)
+db.bounties.updateMany({$ne: _id: ObjectId("629bca390b83c298afe8575a")}, {$set: {"lastseen": "last week"}}, false, true)
+db.bounties.updateMany({$ne: _id: ObjectId("629bca390b83c298afe8575a")}, {$set"} false, true)
+db.bounties.find()
+db.bounties.update({_id: ObjectId("629bca390b83c298afe8575a")}, {$set: {"lastseen": 'yesterday'}}, false, true)
+db.bounties.find()
+db.bounties.update({_id: ObjectId("629bca390b83c298afe8575a")},{$pull: {hunters: 'Dengar'}}, false, true)
+db.bounties.find()
+db.bounties.update({_id: ObjectId("629bca390b83c298afe8575a")},{$pull: {hunters: ['Dengar']}}, false, true)
+db.bounties.update({_id: ObjectId("629bca390b83c298afe8575a")},{$pull: {hunters: ['Dengar']}, false, true})
+db.bounties.find()
+db.bounties.update({_id: ObjectId("629bca390b83c298afe8575a")},{$pull: {hunters: ['Dengar']}})
+db.bounties.update({$pull: {hunters: ['Dengar']}})
+db.bounties.find()
+db.bounties.updateOne({_id: ObjectId("629bca390b83c298afe8575a")},{$mul: {reward: 2}},{multi:true})
+db.bounties.updateOne({_id: ObjectId("629bca390b83c298afe8575a")},{$inc: {reward: 333333}},{multi:true})
+db.bounties.find()
+db.bounties.insert( { name: 'Han Solo', wantedFor: 'Owing money', client: 'Jabba the Hut', reward: 1000000, ship: 'Millennium Falcon', hunters: ['Bobba Fett', 'Dengar', 'IG-88', 'Zuckuss', 'Greedo', 'Bossk', '4-LOM'], captured: false })
+db.bounties.find()
+db.bounties.deleteOne({hunters: 'Dengar'})
+db.bounties.insert( { name: 'Han Solo', wantedFor: 'Owing money', client: 'Jabba the Hut', reward: 1000000, ship: 'Millennium Falcon', hunters: ['Bobba Fett', 'Dengar', 'IG-88', 'Zuckuss', 'Greedo', 'Bossk', '4-LOM'], captured: false })
+db.bounties.find()
+db.bounties.deleteOne({hunters: 'Dengar'})
+db.bounties.find()
+db.bounties.updateOne({ _id: ObjectId("629a59ce0b83c298afe85755")}, {$push: {hunters: 'Bobba Fett'}})
+db.bounties.updateOne({ _id: ObjectId("629a59ce0b83c298afe85755"), {$push: { hunters: ['Bobba Fett']}}
+db.bounties.insertOne({ _id: ObjectId("629a59ce0b83c298afe85755")},{ $push: { hunters: 'Boba Fett' } })
+db.bounties.insertOne({ _id: ObjectId("629a59ce0b83c298afe85755") }({ $push: { hunters: 'Boba Fett' } }))
+db.bounties.insertOne({_id: ObjectId("629a59ce0b83c298afe85755")}({$push: {hunters:'Boba Fett'}}) db.bounties.find()
+db.bounties.find()
+db.bounties.update({},{$mul: {reward: 2}},{multi:true})
+db.bounties.update({},{$mult: {reward: 2}},{multi:true})
+db.bounties.updateAll({{}, {$mul: {reward: 2}}})
+db.bounties.updateAll({{_id}, {$mul: {reward: 2}}})
+db.bounties.updateAll({_id}, {$mul: {reward: 2}})
+db.bounties.updateAll({}, {$mul: {reward: 2}})
+db.bounties.updateAll({},{$multiply: ['$reward', 2]})
+db.bounties.updateMany({{$multiply: ['$reward', 2]})
+patrickwyzlic@Patricks-MacBook-Pro mongosh %
