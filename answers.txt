@@ -1,1 +1,86 @@
 Please replace this text with ~50 lines of terminal history.
+exit
+~/.dbshell
+-50 ~/.dbshell
+tail -50; ~/.dbshell
+tail -50 ~/.dbshell
+db.hits.find();
+db.hits.update( { page: 'employees' }, { $inc: { hits: 1 } }, { upsert: true });
+db.hits.find();
+{ $inc: { hits: 1 } }, { upsert:true } );
+    },
+db.bounties.update( { hunters: ‘Dengar’
+db.bounties.find({ hunters: 'Dengar' })
+db.bounties.deleteOne({ hunters: 'Dengar' })
+db.bounties.find({ hunters: 'Dengar' })
+db.bounties.update({ name: 'Han Solo'}, {$pop:{hunters:1}   })
+db.bounties.update({ name: 'Han Solo'}{$pop:{hunters:1}   })
+db.bounties.find({ hunters: 'Dengar' })
+db.bounties.find({ hunter: 'Dengar' })
+db.bounties.find({hunter: 'Dengar' })
+db.bounties.find({hunter: 'Dengar' } )
+db.bounties.update({ship: 'Waverider'},{ $push: {hunters: 'Bobba Fett'}  })
+db.bounties.update({name: 'Malcolm Reynolds'},{ $push: {hunters: 'Bobba Fett'}  })
+db.bounties.find()
+db.bounties.update({ name: 'Malcolm Reynolds'}, {$mul: { reward:(2) } })
+db.bounties.update({ name: 'White Canary'}, {$mul: { reward:(2) } })
+db.bounties.update({ name: 'Rocket'}, {$mul: { reward:(2) } })
+db.bounties.update({ name: 'Han Solo'}, {$mul: { reward:(2) } })
+db.bounties.find()
+db.bounties.update({ name: 'Malcolm Reynolds'}, {$inc: { reward: 333333} })
+db.bounties.update({ name: 'White Canary'}, {$inc: { reward: 333333} })
+db.bounties.update({ name: 'Rocket'}, {$inc: { reward: 333333} })
+db.bounties.update({ name: 'Han Solo'}, {$inc: { reward: 333333} })
+)
+{ $inc: { salary: 333333; } }
+    },
+db.bounties.update( { name: ‘Han Solo’
+{ $inc: { salary: 333333; } }
+    },
+db.bounties.update( { name: ‘Han Solo’
+db.bounties.find()
+db.bounties.updateAll( { $inc: { reward: 333333 } })
+db.bounties.find({ captured: false, client: 'Ayesha High Priestess of the Sovereign'})
+db.bounties.find({ captured: 'Waverider', client: 'Ayesha High Priestess of the Sovereign'})
+db.bounties.find({ captured: 'Waverider', client: 'Ayesha High Priestess of the Sovereign' })
+db.bounties.find({ ship: 'Waverider', ship: 'Serenity' })
+db.bounties.find({ ship: 'Waverider Serenity' })
+db.bounties.find({ 'Waverider Serenity' })
+db.bounties.find({ 'Waverider' 'Serenity' })
+db.bounties.find({ 'Waverider', 'Serenity' })
+db.bounties.find({ 'Waverider' || 'Serenity' })
+db.bounties.find( { hunters: "Nebula" } )
+db.inventory.find( { hunters: "Nebula" } )
+db.bountie.find({ hunters: /Nebula/ })
+db.bountie.find({ hunters: ['Nebula'] })
+db.bountie.find({ hunters: 'Nebula' })
+db.bountie.find({ hunters: [0]})
+db.bounties.find( { reward: { $lte: 1000 } })
+db.bounties.find( { reward: { $lt: 1000 } })
+db.bounties.find( { reward: { $lt: 1000 } })
+db.bounties.find( { reward: { $gt: 100000 } })
+db.bounties.find( { reward: { $gte: 10000 } })
+db.bounties.updateOne({ ship: 'The Milano' }, { $set: { ship: 'The Milano II' } })
+db.bounties.find()
+db.bounties.updateOne({ name: 'Sara Lance' }, { $set: { name: 'White Canary' } })
+> db.bounties.updateOne({ name: 'Sara Lance' }, { $set: { name: 'White Canary' } })
+db.bountie.updateOne({ name: 'Sara Lance' }, {$set: { name: 'White Canary' } })
+db.bountie.updateOne({ name: 'Sara Lance' }, {$set: { name: 'White Canary'} })
+db.bounties.find()
+db.bountie.updateOne({ name: 'Sara Lance' }, {$set: { name: 'White Canary'}})
+db.bountie.updateOne({ name: 'Sara Lance' }, {$set: 'White Canary'})
+db.bounties.find()
+db.bountie.find()
+db.bounties.deleteOne({ name: /Starbuck/ })
+db.bounties.deleteOne({ name: 'Starbuck })
+db.bounties.find()
+db.bounties.find({ name: 'Han Solo' })
+db.bounties.find({ captured: true })
+db.bounties.find({ captured: false })
+db.bounties.find({ captured: 'true' })
+db.bounties.find({ captured: 'true'})
+db.bounties.find({ client: 'Time Bureau'})
+db.bounties.find()
+db.bounties.insert([ { name: 'Han Solo', wantedFor: 'Owing money', client: 'Jabba the Hut', reward: 1000000, ship: 'Millennium Falcon', hunters: ['Bobba Fett', 'Dengar', 'IG-88', 'Zuckuss', 'Greedo', 'Bossk', '4-LOM'], captured: false }, { name: 'Rocket', wantedFor: 'Stealing Batteries', client: 'Ayesha High Priestess of the Sovereign', reward: 1000000000, ship: 'The Milano', hunters: ['Nebula', 'Ravagers'], captured: false }, { name: 'Sara Lance', wantedFor: 'Screwing up the timeline, causing anachronisms', client: 'Time Bureau', reward: 50000, ship: 'Waverider', hunters: ['Chronos'], captured: false }, { name: 'Malcolm Reynolds', wantedFor: 'Aiming to misbehave', client: 'The Alliance', reward: 40000, ship: 'Serenity', hunters: ['Jubal Early'], captured: false }, { name: 'Starbuck', wantedFor: "Disobeying Captain's orders", client: 'Captain Adama', ship: 'Demetrius', reward: 1000, hunters: ['Apollo'], captured: true }])
+db.createCollection('bounties')
+use hunters
