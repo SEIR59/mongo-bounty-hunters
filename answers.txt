@@ -1,1 +1,39 @@
-Please replace this text with ~50 lines of terminal history.
+~ ls
+Desktop cd GA
+GA cd deliverables
+deliverables cd mongo-bounty-hunters
+mongo-bounty-hunters git:(main) ls -la
+mongo-bounty-hunters git:(main) git remote -v
+mongo-bounty-hunters git:(main) mongod
+mongo-bounty-hunters git:(main)  mongo
+use hunters
+switched to db hunters
+db.createCollection('bounties')
+db.bounties.find()
+db.bounties.find({ client: /Time Bureau/ })
+db.bounties.find({ captured: { $eq: true}})
+db.bounties.find({ name: /Starbuck/})
+db.bounties.find({ }, { _id:0, name: 1})
+db.bounties.deleteOne({ name: "Starbuck"})
+db.bounties.updateOne({ name: 'Sara Lance' }, { $set: { name: 'White Canary'} })
+db.bounties.updateOne({ ship: 'The Milano' }, { $set: { ship: 'The Milano 2'} }
+db.bounties.find({ reward: { $gt: 100000 } })
+db.bounties.find({ reward: { $lt: 1000 } }).count()
+db.bounties.find({ reward: { $lte: 1000 } }).count()
+db.bounties.find({ hunters: /Nebula/ })
+db.bounties.find({ $or: [{ ship: {$in: ["Waverider", "Serenity"]}}]})
+db.bounties.find( {captured: false}, { client: 'Ayesha High Priestess of the Sovereign'}  )
+db.bounties.find({ $and: [{captured: false}, { client: 'Ayesha High Priestess of the Sovereign'} ] })
+db.bounties.updateMany({ reward: { $inc: 333333} })
+db.bounties.updateMany({}, { $inc: {reward: 33333} })
+db.bounties.updateMany({}, { $mul: {reward: 2} })
+db.bounties.update({name: /Malcolm Reynolds/ }, { $push: hunter: 'Bobba Fett'}})
+db.bounties.update({name: /Malcolm Reynolds/ }, { $push: hunter: 'Bobba Fett'} })
+db.bounties.update({ name: /Malcolm Reynolds/ }, { $push: { hunter: 'Bobba Fett' } }      )
+db.bounties.update({ ship: /Waverider/ }, { $push: { hunter: 'Bobba Fett' } } )
+db.bounties.update({ name: /Han Solo/ }, { $pop: { hunters: 'Dengar' } }      )
+db.bounties.deleteOne({ name: /Han Solo/ }, { hunters: 'Dengar' }  )
+db.bounties.update({_id: ObjectId("629a539fc3f9da1484bf980d")}, {$set:  { lastSeen: 'yesterday'} })
+db.bounties.find( {lastSeen: { $ne: 'yesterday' } })
+db.bounties.updateMany( {lastSeen: { $ne: 'yesterday' }},  {$set: { lastSeen: 'last week'} } )
+db.bounties.find( {lastSeen: { $ne: 'yesterday' } })
