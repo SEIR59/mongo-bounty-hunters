@@ -1,3 +1,4 @@
+db.bounties.updateMany({name: {$ne: 'Han Solo'}}, {$set: {lastSeen: 'last week'}}, {upsert: true})
 db.bounties.find({name: /Han/})
 db.bounties.updateOne({name: 'Han Solo'}, {$set:{lastSeen: 'last week'} })
 db.bounties.deleteOne({_id: ObjectId("629a621153e150f30fdf37dd")})
