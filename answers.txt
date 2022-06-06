@@ -1,1 +1,997 @@
-Please replace this text with ~50 lines of terminal history.
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc6"),
+    name: 'Han Solo',
+    wantedFor: 'Owing money',
+    client: 'Jabba the Hut',
+    reward: 1000000,
+    ship: 'Millennium Falcon',
+    hunters: [
+      'Bobba Fett',
+      'Dengar',
+      'IG-88',
+      'Zuckuss',
+      'Greedo',
+      'Bossk',
+      '4-LOM'
+    ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc7"),
+    name: 'Rocket',
+    wantedFor: 'Stealing Batteries',
+    client: 'Ayesha High Priestess of the Sovereign',
+    reward: 1000000000,
+    ship: 'The Milano',
+    hunters: [ 'Nebula', 'Ravagers' ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc8"),
+    name: 'Sara Lance',
+    wantedFor: 'Screwing up the timeline, causing anachronisms',
+    client: 'Time Bureau',
+    reward: 50000,
+    ship: 'Waverider',
+    hunters: [ 'Chronos' ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc9"),
+    name: 'Malcolm Reynolds',
+    wantedFor: 'Aiming to misbehave',
+    client: 'The Alliance',
+    reward: 40000,
+    ship: 'Serenity',
+    hunters: [ 'Jubal Early' ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfca"),
+    name: 'Starbuck',
+    wantedFor: "Disobeying Captain's orders",
+    client: 'Captain Adama',
+    ship: 'Demetrius',
+    reward: 1000,
+    hunters: [ 'Apollo' ],
+    captured: true
+  }
+]
+hunters> db.bounties.find({ captured: true })
+[
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfca"),
+    name: 'Starbuck',
+    wantedFor: "Disobeying Captain's orders",
+    client: 'Captain Adama',
+    ship: 'Demetrius',
+    reward: 1000,
+    hunters: [ 'Apollo' ],
+    captured: true
+  }
+]
+hunters> db.bounties.find({ captured: true }).pretty()
+[
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfca"),
+    name: 'Starbuck',
+    wantedFor: "Disobeying Captain's orders",
+    client: 'Captain Adama',
+    ship: 'Demetrius',
+    reward: 1000,
+    hunters: [ 'Apollo' ],
+    captured: true
+  }
+]
+hunters> db.bounties.find({ name: 'Dr. Tiras P. Jordan'  }).pretty()
+[
+  {
+    _id: ObjectId("629d58fbdcce3d98ffedcfc5"),
+    name: 'Dr. Tiras P. Jordan',
+    wantedFor: 'Nobel Peace Prize',
+    client: 'United Nations',
+    reward: 1000000000,
+    ship: 'Lamborghini Aventador',
+    hunters: [
+      'Chemistry',
+      'Biology',
+      'Math',
+      'NeuroScience',
+      'Metaphysics',
+      'Genetics',
+      'Finance'
+    ],
+    captured: false
+  }
+]
+hunters> db.bounties.find( {}, {name:1 })
+[
+  { _id: ObjectId("629a56d6b24060895ae79117"), name: 'Han Solo' },
+  { _id: ObjectId("629a5c31b24060895ae7911a"), name: 'Rocket' },
+  { _id: ObjectId("629a5c31b24060895ae7911b"), name: 'White Canary' },
+  {
+    _id: ObjectId("629a5c31b24060895ae7911c"),
+    name: 'Malcolm Reynolds'
+  },
+  { _id: ObjectId("629a5e6eb24060895ae7911e"), name: 'Tiras Jordan' },
+  { _id: ObjectId("629a5f24b24060895ae7911f"), name: 'Tiras Jordan' },
+  { _id: ObjectId("629d582bdcce3d98ffedcfc4"), name: 'Han Solo' },
+  {
+    _id: ObjectId("629d58fbdcce3d98ffedcfc5"),
+    name: 'Dr. Tiras P. Jordan'
+  },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc6"), name: 'Han Solo' },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc7"), name: 'Rocket' },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc8"), name: 'Sara Lance' },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc9"),
+    name: 'Malcolm Reynolds'
+  },
+  { _id: ObjectId("629d5910dcce3d98ffedcfca"), name: 'Starbuck' }
+]
+hunters> db.bounties.deleteOne( {name: 'Starbuck'} )
+{ acknowledged: true, deletedCount: 1 }
+hunters> db.bounties.find( {}, {name:1 })
+[
+  { _id: ObjectId("629a56d6b24060895ae79117"), name: 'Han Solo' },
+  { _id: ObjectId("629a5c31b24060895ae7911a"), name: 'Rocket' },
+  { _id: ObjectId("629a5c31b24060895ae7911b"), name: 'White Canary' },
+  {
+    _id: ObjectId("629a5c31b24060895ae7911c"),
+    name: 'Malcolm Reynolds'
+  },
+  { _id: ObjectId("629a5e6eb24060895ae7911e"), name: 'Tiras Jordan' },
+  { _id: ObjectId("629a5f24b24060895ae7911f"), name: 'Tiras Jordan' },
+  { _id: ObjectId("629d582bdcce3d98ffedcfc4"), name: 'Han Solo' },
+  {
+    _id: ObjectId("629d58fbdcce3d98ffedcfc5"),
+    name: 'Dr. Tiras P. Jordan'
+  },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc6"), name: 'Han Solo' },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc7"), name: 'Rocket' },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc8"), name: 'Sara Lance' },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc9"),
+    name: 'Malcolm Reynolds'
+  }
+]
+hunters> db.bounties.deleteOne( { _id: ObjectId("629a56d6b24060895ae79117") } )
+{ acknowledged: true, deletedCount: 1 }
+hunters> db.bounties.updateOne( {name: 'Sara Lance'}, {$set: {name: 'White Canary'}} )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+hunters> db.bounties.find( {}, {name:1 })
+[
+  { _id: ObjectId("629a5c31b24060895ae7911a"), name: 'Rocket' },
+  { _id: ObjectId("629a5c31b24060895ae7911b"), name: 'White Canary' },
+  {
+    _id: ObjectId("629a5c31b24060895ae7911c"),
+    name: 'Malcolm Reynolds'
+  },
+  { _id: ObjectId("629a5e6eb24060895ae7911e"), name: 'Tiras Jordan' },
+  { _id: ObjectId("629a5f24b24060895ae7911f"), name: 'Tiras Jordan' },
+  { _id: ObjectId("629d582bdcce3d98ffedcfc4"), name: 'Han Solo' },
+  {
+    _id: ObjectId("629d58fbdcce3d98ffedcfc5"),
+    name: 'Dr. Tiras P. Jordan'
+  },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc6"), name: 'Han Solo' },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc7"), name: 'Rocket' },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc8"), name: 'White Canary' },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc9"),
+    name: 'Malcolm Reynolds'
+  }
+]
+hunters> db.bounties.updateOne( {name: 'Rocket'}, {$set: {ship: 'The Milano 2'}} )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+hunters> db.bounties.find( {name: 'Rocket'} )
+[
+  {
+    _id: ObjectId("629a5c31b24060895ae7911a"),
+    name: 'Rocket',
+    wantedFor: 'Stealing Batteries',
+    client: 'Ayesha High Priestess of the Sovereign',
+    reward: 1000000000,
+    ship: 'The Milano 2',
+    hunters: [ 'Nebula', 'Ravagers' ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc7"),
+    name: 'Rocket',
+    wantedFor: 'Stealing Batteries',
+    client: 'Ayesha High Priestess of the Sovereign',
+    reward: 1000000000,
+    ship: 'The Milano',
+    hunters: [ 'Nebula', 'Ravagers' ],
+    captured: false
+  }
+]
+hunters> db.bounties.find( {reward : { $gt 100000 } } )
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:34)
+
+> 1 | db.bounties.find( {reward : { $gt 100000 } } )
+    |                                   ^
+  2 |
+
+hunters> db.bounties.find( {reward : { $gt: 100000 } } )
+[
+  {
+    _id: ObjectId("629a5c31b24060895ae7911a"),
+    name: 'Rocket',
+    wantedFor: 'Stealing Batteries',
+    client: 'Ayesha High Priestess of the Sovereign',
+    reward: 1000000000,
+    ship: 'The Milano 2',
+    hunters: [ 'Nebula', 'Ravagers' ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629a5e6eb24060895ae7911e"),
+    name: 'Tiras Jordan',
+    wantedFor: 'Software Engineering Expertise',
+    client: 'Northrup Grumman',
+    reward: 12000000000,
+    ship: 'Mclarren MP4 12C',
+    hunters: [
+      'Head Hunters',
+      'Deloitte',
+      'Blackstone',
+      'Vista Capital',
+      'FedEx',
+      'Doft',
+      'Columbia University'
+    ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629a5f24b24060895ae7911f"),
+    name: 'Tiras Jordan',
+    wantedFor: 'Software Engineering Expertise',
+    client: 'Northrup Grumman',
+    reward: 12000000000,
+    ship: 'Mclarren MP4 12C',
+    hunters: [
+      'Head Hunters',
+      'Deloitte',
+      'Blackstone',
+      'Vista Capital',
+      'FedEx',
+      'Doft',
+      'Columbia University'
+    ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d582bdcce3d98ffedcfc4"),
+    name: 'Han Solo',
+    wantedFor: 'Owing money',
+    client: 'Jabba the Hut',
+    reward: 1000000,
+    ship: 'Millennium Falcon',
+    hunters: [
+      'Bobba Fett',
+      'Dengar',
+      'IG-88',
+      'Zuckuss',
+      'Greedo',
+      'Bossk',
+      '4-LOM'
+    ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d58fbdcce3d98ffedcfc5"),
+    name: 'Dr. Tiras P. Jordan',
+    wantedFor: 'Nobel Peace Prize',
+    client: 'United Nations',
+    reward: 1000000000,
+    ship: 'Lamborghini Aventador',
+    hunters: [
+      'Chemistry',
+      'Biology',
+      'Math',
+      'NeuroScience',
+      'Metaphysics',
+      'Genetics',
+      'Finance'
+    ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc6"),
+    name: 'Han Solo',
+    wantedFor: 'Owing money',
+    client: 'Jabba the Hut',
+    reward: 1000000,
+    ship: 'Millennium Falcon',
+    hunters: [
+      'Bobba Fett',
+      'Dengar',
+      'IG-88',
+      'Zuckuss',
+      'Greedo',
+      'Bossk',
+      '4-LOM'
+    ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc7"),
+    name: 'Rocket',
+    wantedFor: 'Stealing Batteries',
+    client: 'Ayesha High Priestess of the Sovereign',
+    reward: 1000000000,
+    ship: 'The Milano',
+    hunters: [ 'Nebula', 'Ravagers' ],
+    captured: false
+  }
+]
+hunters> db.bounties.find( {reward : { $lt : 1000 } } )
+
+hunters> db.bounties.find( {reward : { $lte : 1000 } } )
+
+hunters> db.bounties.find( {hunter : 'Nebula'} )
+
+hunters> db.bounties.find( {hunters : 'Nebula'} )
+[
+  {
+    _id: ObjectId("629a5c31b24060895ae7911a"),
+    name: 'Rocket',
+    wantedFor: 'Stealing Batteries',
+    client: 'Ayesha High Priestess of the Sovereign',
+    reward: 1000000000,
+    ship: 'The Milano 2',
+    hunters: [ 'Nebula', 'Ravagers' ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc7"),
+    name: 'Rocket',
+    wantedFor: 'Stealing Batteries',
+    client: 'Ayesha High Priestess of the Sovereign',
+    reward: 1000000000,
+    ship: 'The Milano',
+    hunters: [ 'Nebula', 'Ravagers' ],
+    captured: false
+  }
+]
+hunters> db.bounties.find( {ship : 'Waverider'}, {ship : 'Serenity'} )
+[
+  { _id: ObjectId("629a5c31b24060895ae7911b"), ship: 'Serenity' },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc8"), ship: 'Serenity' }
+]
+hunters> db.bounties.find ( {_id: ObjectId("629d5910dcce3d98ffedcfc8")} )
+[
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc8"),
+    name: 'White Canary',
+    wantedFor: 'Screwing up the timeline, causing anachronisms',
+    client: 'Time Bureau',
+    reward: 50000,
+    ship: 'Waverider',
+    hunters: [ 'Chronos' ],
+    captured: false
+  }
+]
+hunters> db.bounties.find( {_id: ObjectId("629a5c31b24060895ae7911b")} )
+[
+  {
+    _id: ObjectId("629a5c31b24060895ae7911b"),
+    name: 'White Canary',
+    wantedFor: 'Screwing up the timeline, causing anachronisms',
+    client: 'Time Bureau',
+    reward: 50000,
+    ship: 'Waverider',
+    hunters: [ 'Chronos' ],
+    captured: false
+  }
+]
+hunters> db.bounties.find( {captured: false}, {client: 'Ayesha High Priestess of the Sovereign'} )
+[
+  {
+    _id: ObjectId("629a5c31b24060895ae7911a"),
+    client: 'Ayesha High Priestess of the Sovereign'
+  },
+  {
+    _id: ObjectId("629a5c31b24060895ae7911b"),
+    client: 'Ayesha High Priestess of the Sovereign'
+  },
+  {
+    _id: ObjectId("629a5c31b24060895ae7911c"),
+    client: 'Ayesha High Priestess of the Sovereign'
+  },
+  {
+    _id: ObjectId("629a5e6eb24060895ae7911e"),
+    client: 'Ayesha High Priestess of the Sovereign'
+  },
+  {
+    _id: ObjectId("629a5f24b24060895ae7911f"),
+    client: 'Ayesha High Priestess of the Sovereign'
+  },
+  {
+    _id: ObjectId("629d582bdcce3d98ffedcfc4"),
+    client: 'Ayesha High Priestess of the Sovereign'
+  },
+  {
+    _id: ObjectId("629d58fbdcce3d98ffedcfc5"),
+    client: 'Ayesha High Priestess of the Sovereign'
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc6"),
+    client: 'Ayesha High Priestess of the Sovereign'
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc7"),
+    client: 'Ayesha High Priestess of the Sovereign'
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc8"),
+    client: 'Ayesha High Priestess of the Sovereign'
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc9"),
+    client: 'Ayesha High Priestess of the Sovereign'
+  }
+]
+hunters> db.bounties.find( {}, {$inc: {reward:333333})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:44)
+
+> 1 | db.bounties.find( {}, {$inc: {reward:333333})
+    |                                             ^
+  2 |
+
+hunters> db.bounties.find({$inc: {reward:333333})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:39)
+
+> 1 | db.bounties.find({$inc: {reward:333333})
+    |                                        ^
+  2 |
+
+hunters> db.bounties.updateMany({}, {$inc: {reward: 333333}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 11,
+  modifiedCount: 11,
+  upsertedCount: 0
+}
+hunters> db.bounties.find({}, {reward: 1})
+[
+  { _id: ObjectId("629a5c31b24060895ae7911a"), reward: 1000333333 },
+  { _id: ObjectId("629a5c31b24060895ae7911b"), reward: 383333 },
+  { _id: ObjectId("629a5c31b24060895ae7911c"), reward: 373333 },
+  { _id: ObjectId("629a5e6eb24060895ae7911e"), reward: 12000333333 },
+  { _id: ObjectId("629a5f24b24060895ae7911f"), reward: 12000333333 },
+  { _id: ObjectId("629d582bdcce3d98ffedcfc4"), reward: 1333333 },
+  { _id: ObjectId("629d58fbdcce3d98ffedcfc5"), reward: 1000333333 },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc6"), reward: 1333333 },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc7"), reward: 1000333333 },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc8"), reward: 383333 },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc9"), reward: 373333 }
+]
+hunters> db.bounties.updateMany({}, {$mul: {reward: 2}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 11,
+  modifiedCount: 11,
+  upsertedCount: 0
+}
+hunters> db.bounties.find({}, {reward: 1})
+[
+  { _id: ObjectId("629a5c31b24060895ae7911a"), reward: 2000666666 },
+  { _id: ObjectId("629a5c31b24060895ae7911b"), reward: 766666 },
+  { _id: ObjectId("629a5c31b24060895ae7911c"), reward: 746666 },
+  { _id: ObjectId("629a5e6eb24060895ae7911e"), reward: 24000666666 },
+  { _id: ObjectId("629a5f24b24060895ae7911f"), reward: 24000666666 },
+  { _id: ObjectId("629d582bdcce3d98ffedcfc4"), reward: 2666666 },
+  { _id: ObjectId("629d58fbdcce3d98ffedcfc5"), reward: 2000666666 },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc6"), reward: 2666666 },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc7"), reward: 2000666666 },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc8"), reward: 766666 },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc9"), reward: 746666 }
+]
+hunters> db.bounties.updateOne( {name: 'Malcom Reynolds'}, { $addToSet: { hunters: 'Bobba Fett' } })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+hunters> db.bounties.find({name: 'Malcom Reynolds'})
+
+hunters> db.bounties.find({}, {name: 1})
+[
+  { _id: ObjectId("629a5c31b24060895ae7911a"), name: 'Rocket' },
+  { _id: ObjectId("629a5c31b24060895ae7911b"), name: 'White Canary' },
+  {
+    _id: ObjectId("629a5c31b24060895ae7911c"),
+    name: 'Malcolm Reynolds'
+  },
+  { _id: ObjectId("629a5e6eb24060895ae7911e"), name: 'Tiras Jordan' },
+  { _id: ObjectId("629a5f24b24060895ae7911f"), name: 'Tiras Jordan' },
+  { _id: ObjectId("629d582bdcce3d98ffedcfc4"), name: 'Han Solo' },
+  {
+    _id: ObjectId("629d58fbdcce3d98ffedcfc5"),
+    name: 'Dr. Tiras P. Jordan'
+  },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc6"), name: 'Han Solo' },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc7"), name: 'Rocket' },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc8"), name: 'White Canary' },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc9"),
+    name: 'Malcolm Reynolds'
+  }
+]
+hunters> db.bounties.updateOne( {name: 'Malcolm Reynolds'}, { $addToSet: { hunters: 'Bobba Fett' } })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+hunters> db.bounties.find({name: 'Malcolm Reynolds'})
+[
+  {
+    _id: ObjectId("629a5c31b24060895ae7911c"),
+    name: 'Malcolm Reynolds',
+    wantedFor: 'Aiming to misbehave',
+    client: 'The Alliance',
+    reward: 746666,
+    ship: 'Serenity',
+    hunters: [ 'Jubal Early', 'Bobba Fett' ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc9"),
+    name: 'Malcolm Reynolds',
+    wantedFor: 'Aiming to misbehave',
+    client: 'The Alliance',
+    reward: 746666,
+    ship: 'Serenity',
+    hunters: [ 'Jubal Early' ],
+    captured: false
+  }
+]
+hunters> db.bounties.updateOne( {ship: 'Waverider'}, { $addToSet: { hunters: 'Bobba Fett' } })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+hunters> db.bounties.find({ship: 'Waverider'})
+[
+  {
+    _id: ObjectId("629a5c31b24060895ae7911b"),
+    name: 'White Canary',
+    wantedFor: 'Screwing up the timeline, causing anachronisms',
+    client: 'Time Bureau',
+    reward: 766666,
+    ship: 'Waverider',
+    hunters: [ 'Chronos', 'Bobba Fett' ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc8"),
+    name: 'White Canary',
+    wantedFor: 'Screwing up the timeline, causing anachronisms',
+    client: 'Time Bureau',
+    reward: 766666,
+    ship: 'Waverider',
+    hunters: [ 'Chronos' ],
+    captured: false
+  }
+]
+hunters> db.bounties.find({hunters: 'Dengar'})
+[
+  {
+    _id: ObjectId("629d582bdcce3d98ffedcfc4"),
+    name: 'Han Solo',
+    wantedFor: 'Owing money',
+    client: 'Jabba the Hut',
+    reward: 2666666,
+    ship: 'Millennium Falcon',
+    hunters: [
+      'Bobba Fett',
+      'Dengar',
+      'IG-88',
+      'Zuckuss',
+      'Greedo',
+      'Bossk',
+      '4-LOM'
+    ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc6"),
+    name: 'Han Solo',
+    wantedFor: 'Owing money',
+    client: 'Jabba the Hut',
+    reward: 2666666,
+    ship: 'Millennium Falcon',
+    hunters: [
+      'Bobba Fett',
+      'Dengar',
+      'IG-88',
+      'Zuckuss',
+      'Greedo',
+      'Bossk',
+      '4-LOM'
+    ],
+    captured: false
+  }
+]
+hunters> db.bounties.updateMany( {}, {$pull: {hunters: 'Dengar'}} )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 11,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+hunters> db.bounties.find()
+[
+  {
+    _id: ObjectId("629a5c31b24060895ae7911a"),
+    name: 'Rocket',
+    wantedFor: 'Stealing Batteries',
+    client: 'Ayesha High Priestess of the Sovereign',
+    reward: 2000666666,
+    ship: 'The Milano 2',
+    hunters: [ 'Nebula', 'Ravagers' ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629a5c31b24060895ae7911b"),
+    name: 'White Canary',
+    wantedFor: 'Screwing up the timeline, causing anachronisms',
+    client: 'Time Bureau',
+    reward: 766666,
+    ship: 'Waverider',
+    hunters: [ 'Chronos', 'Bobba Fett' ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629a5c31b24060895ae7911c"),
+    name: 'Malcolm Reynolds',
+    wantedFor: 'Aiming to misbehave',
+    client: 'The Alliance',
+    reward: 746666,
+    ship: 'Serenity',
+    hunters: [ 'Jubal Early', 'Bobba Fett' ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629a5e6eb24060895ae7911e"),
+    name: 'Tiras Jordan',
+    wantedFor: 'Software Engineering Expertise',
+    client: 'Northrup Grumman',
+    reward: 24000666666,
+    ship: 'Mclarren MP4 12C',
+    hunters: [
+      'Head Hunters',
+      'Deloitte',
+      'Blackstone',
+      'Vista Capital',
+      'FedEx',
+      'Doft',
+      'Columbia University'
+    ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629a5f24b24060895ae7911f"),
+    name: 'Tiras Jordan',
+    wantedFor: 'Software Engineering Expertise',
+    client: 'Northrup Grumman',
+    reward: 24000666666,
+    ship: 'Mclarren MP4 12C',
+    hunters: [
+      'Head Hunters',
+      'Deloitte',
+      'Blackstone',
+      'Vista Capital',
+      'FedEx',
+      'Doft',
+      'Columbia University'
+    ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d582bdcce3d98ffedcfc4"),
+    name: 'Han Solo',
+    wantedFor: 'Owing money',
+    client: 'Jabba the Hut',
+    reward: 2666666,
+    ship: 'Millennium Falcon',
+    hunters: [ 'Bobba Fett', 'IG-88', 'Zuckuss', 'Greedo', 'Bossk', '4-LOM' ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d58fbdcce3d98ffedcfc5"),
+    name: 'Dr. Tiras P. Jordan',
+    wantedFor: 'Nobel Peace Prize',
+    client: 'United Nations',
+    reward: 2000666666,
+    ship: 'Lamborghini Aventador',
+    hunters: [
+      'Chemistry',
+      'Biology',
+      'Math',
+      'NeuroScience',
+      'Metaphysics',
+      'Genetics',
+      'Finance'
+    ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc6"),
+    name: 'Han Solo',
+    wantedFor: 'Owing money',
+    client: 'Jabba the Hut',
+    reward: 2666666,
+    ship: 'Millennium Falcon',
+    hunters: [ 'Bobba Fett', 'IG-88', 'Zuckuss', 'Greedo', 'Bossk', '4-LOM' ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc7"),
+    name: 'Rocket',
+    wantedFor: 'Stealing Batteries',
+    client: 'Ayesha High Priestess of the Sovereign',
+    reward: 2000666666,
+    ship: 'The Milano',
+    hunters: [ 'Nebula', 'Ravagers' ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc8"),
+    name: 'White Canary',
+    wantedFor: 'Screwing up the timeline, causing anachronisms',
+    client: 'Time Bureau',
+    reward: 766666,
+    ship: 'Waverider',
+    hunters: [ 'Chronos' ],
+    captured: false
+  },
+  {
+    _id: ObjectId("629d5910dcce3d98ffedcfc9"),
+    name: 'Malcolm Reynolds',
+    wantedFor: 'Aiming to misbehave',
+    client: 'The Alliance',
+    reward: 746666,
+    ship: 'Serenity',
+    hunters: [ 'Jubal Early' ],
+    captured: false
+  }
+]
+hunters> db.bounties.find({hunters: 'Dengar'})
+
+hunters> db.bounties.update({ name: 'Han Solo'}, { $inc: { lastSeen: 'yesterday' }})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+MongoServerError: Cannot increment with non-numeric argument: {lastSeen: "yesterday"}
+hunters> db.bounties.updateMany({ name: 'Han Solo'}, { $inc: { lastSeen: 'yesterday' }})
+MongoServerError: Cannot increment with non-numeric argument: {lastSeen: "yesterday"}
+hunters> db.bounties.updateOne({ name: 'Han Solo'}, { $inc: { lastSeen: 'yesterday' }})
+MongoServerError: Cannot increment with non-numeric argument: {lastSeen: "yesterday"}
+hunters> db.bounties.updateOne({ name: 'Han Solo'}, { lastSeen: 'yesterday' })
+MongoInvalidArgumentError: Update document requires atomic operators
+hunters> db.bounties.updateOne({ name: 'Han Solo'}, { lastSeen: 'yesterday' }, { upsert: true })
+MongoInvalidArgumentError: Update document requires atomic operators
+hunters> db.bounties.updateOne({ name: 'Han Solo'}, {$set: {lastSeen: 'yesterday'}}, {upsert: true})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+hunters> db.bounties.find({lastSeen: 'yesterday'})
+[
+  {
+    _id: ObjectId("629d582bdcce3d98ffedcfc4"),
+    name: 'Han Solo',
+    wantedFor: 'Owing money',
+    client: 'Jabba the Hut',
+    reward: 2666666,
+    ship: 'Millennium Falcon',
+    hunters: [ 'Bobba Fett', 'IG-88', 'Zuckuss', 'Greedo', 'Bossk', '4-LOM' ],
+    captured: false,
+    lastSeen: 'yesterday'
+  }
+]
+hunters> db.bounties.updateOne({}, { name: 1}, {$set: {lastSeen: 'yesterday'}}, {upsert: true})
+MongoInvalidArgumentError: Update document requires atomic operators
+hunters>
+
+hunters> hunters> db.bounties.updateOne({ name: 1}, {$set: {lastSeen: 'yesterday'}}, {upsert: true})
+ReferenceError: hunters is not defined
+hunters> db.bounties.updateMAny({}, { name: 1}, {$set: {lastSeen: 'yesterday'}}, {upsert: true})
+TypeError: db.bounties.updateMAny is not a function
+hunters> db.bounties.updateMany({}, { name: 1}, {$set: {lastSeen: 'yesterday'}}, {upsert: true})
+MongoInvalidArgumentError: Update document requires atomic operators
+hunters> db.bounties.updateMany({}, {$set: {lastSeen: 'yesterday'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 11,
+  modifiedCount: 10,
+  upsertedCount: 0
+}
+hunters> db.bounties.find({}, {lastSeen: 1})
+[
+  { _id: ObjectId("629a5c31b24060895ae7911a"), lastSeen: 'yesterday' },
+  { _id: ObjectId("629a5c31b24060895ae7911b"), lastSeen: 'yesterday' },
+  { _id: ObjectId("629a5c31b24060895ae7911c"), lastSeen: 'yesterday' },
+  { _id: ObjectId("629a5e6eb24060895ae7911e"), lastSeen: 'yesterday' },
+  { _id: ObjectId("629a5f24b24060895ae7911f"), lastSeen: 'yesterday' },
+  { _id: ObjectId("629d582bdcce3d98ffedcfc4"), lastSeen: 'yesterday' },
+  { _id: ObjectId("629d58fbdcce3d98ffedcfc5"), lastSeen: 'yesterday' },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc6"), lastSeen: 'yesterday' },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc7"), lastSeen: 'yesterday' },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc8"), lastSeen: 'yesterday' },
+  { _id: ObjectId("629d5910dcce3d98ffedcfc9"), lastSeen: 'yesterday' }
+]
+hunters>
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+hunters>
+➜  ~ git:(master) ✗ cd desktop
+➜  desktop git:(master) ✗ ls
+2021 Freightscape Project Restore Proforma Desktop - CPA updated.xlsx
+2021 Freightscape Project Restore Proforma Desktop CPA Sales Tax.xlsx
+Budget Plan.xlsx
+Command-Line-Interface-CourseWork
+Commercial Lease.pdf
+Drug Screen FedEx.pdf
+FEDEX HIRE DOCUMENTS
+FEDEX HIRE DOCUMENTS copy
+FedEX information Request due 4.8.21.pdf
+Freightscape Financial Models Revisions A.xlsx
+Freightscape Financial Models(AutoRecovered) Desktop.xlsx
+Freightscape Financial Models(AutoRecovered).xlsx
+Freightscape Project Restore Proforma Desktop .xlsx
+Freightscape Project Restore Proforma Desktop.xlsx
+Freightscape Project Restore Proforma.xlsx
+Freightscape SLoT-Inquiry-Form-2021.pdf
+Freightscape Sales (Exclusive).xlsx
+GA-Blog
+GA_Class_Projects
+GA_Homework
+Iphone Troublwe shoot.pdf
+LOWES Prequalify for the LOWES Credit Card.pdf
+Landlord W9 Project Restore.pdf
+MENU -Class Members.pages
+Offer Letter.pdf
+Page 2.pdf
+Page 3.pdf
+Personal Financial Statement.pages
+Personal Financial Statement.pdf
+Project Restore Freightscape .pdf
+REST-superheroes-lab
+Relocated Items
+Rental Agreement Project Restore Copy.pdf
+SEI GA PreCourse Notes
+SEI GA PreCourse Notes 2
+Screen Shot 2021-09-13 at 7.32.14 AM.png
+Screen Shot 2021-09-16 at 7.31.02 AM.png
+Screen Shot 2021-12-15 at 11.43.56 PM.png
+Screen Shot 2022-03-16 at 11.20.53 AM.png
+Screen Shot 2022-04-02 at 12.01.36 AM.png
+Screen Shot 2022-05-09 at 2.18.37 PM.png
+Screen Shot 2022-05-09 at 2.29.10 PM.png
+Screen Shot 2022-05-09 at 2.34.09 PM 1.png
+Screen Shot 2022-05-09 at 2.34.09 PM.png
+Screen Shot 2022-05-20 at 11.36.58 AM (2).png
+Screen Shot 2022-05-20 at 11.36.58 AM (3).png
+Screen Shot 2022-05-20 at 11.36.58 AM.png
+Screen Shot 2022-05-20 at 11.46.00 AM (2).png
+Screen Shot 2022-05-20 at 11.46.00 AM (3).png
+Screen Shot 2022-05-20 at 11.46.00 AM.png
+Screen Shot 2022-05-26 at 11.37.10 AM.png
+Screen Shot 2022-05-26 at 3.30.36 PM.png
+Screen Shot 2022-05-31 at 3.17.42 PM.png
+Screen Shot 2022-06-01 at 2.54.50 PM 1.png
+Screen Shot 2022-06-01 at 2.54.50 PM.png
+Screen Shot 2022-06-01 at 5.20.33 PM.png
+Send Off Day Menu Selection.pdf
+State Govt. Day Menu 2021-2022.pdf
+TIRAS JORDAN USXPRESS RESUME.pdf
+TechNerds NDA copy.pdf
+Tiras Jordan - Freight Scape Website (MVP) By  TechNerds.pdf
+USXpress Payroll
+calculator-express
+copied filed
+ec59
+express-exobiology-lab
+express-fruits-codealong
+express-intro-codealong
+expressDayOneDeliverable
+express_calculator
+gitPub-deliverable
+index.html
+living_room
+mongo-bounty-hunters
+mongoDbIntro
+mw507 copy.pdf
+teshub
+tic-tac-toe
+~$ALF Financials (ProForma 3yrs).xlsx
+~$Budget Plan.xlsx
+~$Financial Projections Edited version 1.xlsx
+~$Freightscape Financial Models Revisions A.xlsx
+~$Freightscape Project Restore Proforma Desktop.xlsx
+~$Freightscape Project Restore Proforma.xlsx
+~$Freightscape Sales (Exclusive).xlsx
+~$Presentation Document Final Aesthetics.xlsx
+~$financial projections draft.xlsx
+➜  desktop git:(master) ✗ cd mongo-bounty-hunters
+➜  mongo-bounty-hunters git:(main) ls
+answers.txt readme.md
+➜  mongo-bounty-hunters git:(main) tail -50 ~/.dbshell
+mongo mongo-crud
+mongo-crud
+mongosh mongo-crud
+➜  mongo-bounty-hunters git:(main) mongosh hunters
+Current Mongosh Log ID:	629d72de9c4471538fff859d
+Connecting to:		mongodb://127.0.0.1:27017/hunters?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.5.0
+Using MongoDB:		4.4.13
+Using Mongosh:		1.5.0
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2022-06-04T19:37:24.725-04:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+   2022-06-04T19:37:25.382-04:00: Soft rlimits too low
+------
+
+------
+   Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+   metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+   The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+   and anyone you share the URL with. MongoDB may use this information to make product
+   improvements and to suggest MongoDB products and deployment options to you.
+
+   To enable free monitoring, run the following command: db.enableFreeMonitoring()
+   To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+------
+
+Warning: Found ~/.mongorc.js, but not ~/.mongoshrc.js. ~/.mongorc.js will not be loaded.
+  You may want to copy or rename ~/.mongorc.js to ~/.mongoshrc.js.
+hunters> tail -50 ~/.dbshell
+Uncaught:
+SyntaxError: Missing semicolon. (1:8)
+
+> 1 | tail -50 ~/.dbshell
+    |         ^
+  2 |
+
+hunters> exit
+➜  mongo-bounty-hunters git:(main) tail -50 ~/.dbshell
+mongo mongo-crud
+mongo-crud
+mongosh mongo-crud
+➜  mongo-bounty-hunters git:(main) code .
+➜  mongo-bounty-hunters git:(main)
