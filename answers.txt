@@ -1,1 +1,39 @@
 Please replace this text with ~50 lines of terminal history.
+mongo
+use hunters
+db.createCollection('bounties')
+show collection
+  *bounties
+db.bounties.insert({})
+db.bounties.insert([{}]) full array of data inserted
+db.bounties.find().pretty()
+db.bounties.insert({})
+db.bounties.find( { client : /Jurgen/ })
+db.bounties.find({ captured : true })
+db.bounties.find({}, {name:1})
+db.bounties.deleteOne({ name: "Starbuck" })
+db.bounties.deleteOne({ name: "Han Solo" })
+db.bounties.updateOne({ name: "Sara Lance }, { $set: { name: "White Canary" } })
+db.bounties.updateOne({ ship: "The Milano" }, { $set: { ship: "The Milano 2" } })
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+db.bounties.find({ reward: { $gt: 100000 } })
+db.bounties.find({ reward: { $lt: 1000 } })
+db.bounties.find({ reward: { $lte: 1000 } })
+db.bounties.find({ hunters: "Nebula" })
+db.bounties.find( {$and: [ { captured: false }, { client: "Ayesha High Priestess of the Sovereign" } ] })
+db.bounties.updateMany({}, {$inc:{reward:333333}})
+db.bounties.updateMany({}, {$mul:{reward: 2} })
+db.bounties.updateOne({ name: "Malcolm Reynolds" }, { $push: { hunters: "Bobba Fett" } })
+db.bounties.updateOne({ ship: "Waverider" }, { $push: { hunters: "Bobba Fett" } })
+db.bounties.updateMany({}, { $pull: { hunters: "Dengar" } })
+db.bounties.updateOne({ name: "Han Solo" }, { $set: { lastSeen: "Yesterday" } })
+db.bounties.updateMany({ name: { $ne: "Han Solo" } }, { $set: { lastSeen: "last week" } })
+
+tail -50
+uncaught exception: ReferenceError: tail is not defined :
+@(shell):1:1
+tail -50 .dbshell
+uncaught exception: ReferenceError: tail is not defined :
+@(shell):1:1
+
+Did not work so I typed it out.
